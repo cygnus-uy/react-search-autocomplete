@@ -9,6 +9,7 @@ interface SearchInputProps {
   setHighlightedItem: Function
   autoFocus: boolean
   onFocus: FocusEventHandler<HTMLInputElement>
+  onBlur: FocusEventHandler<HTMLInputElement>
   onClear: Function
   placeholder: string
   showIcon: boolean
@@ -21,11 +22,11 @@ export default function SearchInput({
   setHighlightedItem,
   autoFocus,
   onFocus,
+  onBlur,
   onClear,
   placeholder,
   showIcon = true,
-  showClear = true,
-  ...rest
+  showClear = true
 }: SearchInputProps) {
   const ref = useRef<HTMLInputElement>(null)
 
@@ -50,11 +51,11 @@ export default function SearchInput({
         value={searchString}
         onChange={setSearchString}
         onFocus={handleOnFocus}
+        onBlur={onBlur}
         placeholder={placeholder}
         autoFocus={autoFocus}
         onKeyDown={(event) => setHighlightedItem({ event })}
         data-test="search-input"
-        {...rest}
       />
       <ClearIcon
         showClear={showClear}

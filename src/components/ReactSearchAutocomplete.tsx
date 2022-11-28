@@ -4,6 +4,7 @@ import React, {
   FocusEvent,
   FocusEventHandler,
   KeyboardEvent,
+  MouseEventHandler,
   useEffect,
   useState
 } from 'react'
@@ -24,6 +25,8 @@ export interface ReactSearchAutocompleteProps<T> {
   onHover?: (result: T) => void
   onSelect?: (result: T) => void
   onFocus?: FocusEventHandler<HTMLInputElement>
+  onBlur?: FocusEventHandler<HTMLInputElement>
+  onMouseLeave?: MouseEventHandler<HTMLInputElement>
   onClear?: Function
   showIcon?: boolean
   showClear?: boolean
@@ -47,6 +50,8 @@ export default function ReactSearchAutocomplete<T>({
   onHover = () => {},
   onSelect = () => {},
   onFocus = () => {},
+  onBlur = () => {},
+  onMouseLeave = () => {},
   onClear = () => {},
   showIcon = true,
   showClear = true,
@@ -223,18 +228,18 @@ export default function ReactSearchAutocomplete<T>({
   return (
     <ThemeProvider theme={theme}>
       <StyledReactSearchAutocomplete>
-        <div className="wrapper">
+        <div className="wrapper" onMouseLeave={onMouseLeave}>
           <SearchInput
             searchString={searchString}
             setSearchString={handleSetSearchString}
             autoFocus={autoFocus}
             onFocus={handleOnFocus}
+            onBlur={onBlur}
             onClear={onClear}
             placeholder={placeholder}
             showIcon={showIcon}
             showClear={showClear}
             setHighlightedItem={handleSetHighlightedItem}
-            {...rest}
           />
           <Results
             results={results}
