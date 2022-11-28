@@ -4,3 +4,5 @@
 .eslintcache
 .DS_Store
 /coverage
+.history
+.vscode

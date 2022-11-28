@@ -59,7 +59,8 @@ export default function ReactSearchAutocomplete<T>({
   formatResult,
   showNoResults = true,
   showNoResultsText = 'No results',
-  showItemsOnFocus = false
+  showItemsOnFocus = false,
+  ...rest
 }: ReactSearchAutocompleteProps<T>) {
   const theme = { ...defaultTheme, ...styling }
   const options = { ...defaultFuseOptions, ...fuseOptions }
@@ -233,6 +234,7 @@ export default function ReactSearchAutocomplete<T>({
             showIcon={showIcon}
             showClear={showClear}
             setHighlightedItem={handleSetHighlightedItem}
+            {...rest}
           />
           <Results
             results={results}

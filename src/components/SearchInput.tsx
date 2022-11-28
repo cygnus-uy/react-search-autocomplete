@@ -24,7 +24,8 @@ export default function SearchInput({
   onClear,
   placeholder,
   showIcon = true,
-  showClear = true
+  showClear = true,
+  ...rest
 }: SearchInputProps) {
   const ref = useRef<HTMLInputElement>(null)
 
@@ -53,6 +54,7 @@ export default function SearchInput({
         autoFocus={autoFocus}
         onKeyDown={(event) => setHighlightedItem({ event })}
         data-test="search-input"
+        {...rest}
       />
       <ClearIcon
         showClear={showClear}
