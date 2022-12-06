@@ -106,7 +106,7 @@ function ReactSearchAutocomplete(_a) {
     }, [showItemsOnFocus, results, searchString, hasFocus]);
     (0, react_1.useEffect)(function () {
         var handleDocumentClick = function () {
-            eraseResults();
+            // eraseResults()
             setHasFocus(false);
         };
         document.addEventListener('click', handleDocumentClick);
@@ -127,7 +127,7 @@ function ReactSearchAutocomplete(_a) {
         ? (0, utils_1.debounce)(function (keyword) { return callOnSearch(keyword); }, inputDebounce)
         : function (keyword) { return callOnSearch(keyword); }, [items]);
     var handleOnClick = function (result) {
-        eraseResults();
+        // eraseResults()
         onSelect(result);
         setSearchString(result[resultStringKeyName]);
         setHighlightedItem(0);
@@ -176,7 +176,7 @@ function ReactSearchAutocomplete(_a) {
                         onSearch(searchString, results);
                     }
                     setHighlightedItem(-1);
-                    eraseResults();
+                    // eraseResults()
                     break;
                 case 'ArrowUp':
                     event.preventDefault();

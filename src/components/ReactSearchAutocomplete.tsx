@@ -117,7 +117,7 @@ export default function ReactSearchAutocomplete<T>({
 
   useEffect(() => {
     const handleDocumentClick = () => {
-      eraseResults()
+      // eraseResults()
       setHasFocus(false)
     }
 
@@ -149,7 +149,7 @@ export default function ReactSearchAutocomplete<T>({
   )
 
   const handleOnClick = (result: Item<T>) => {
-    eraseResults()
+    // eraseResults()
     onSelect(result)
     setSearchString(result[resultStringKeyName])
     setHighlightedItem(0)
@@ -207,7 +207,7 @@ export default function ReactSearchAutocomplete<T>({
             onSearch(searchString, results)
           }
           setHighlightedItem(-1)
-          eraseResults()
+          // eraseResults()
           break
         case 'ArrowUp':
           event.preventDefault()
