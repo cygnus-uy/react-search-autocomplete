@@ -15,6 +15,7 @@ export interface ReactSearchAutocompleteProps<T> {
     onMouseLeave?: MouseEventHandler<HTMLInputElement>;
     onClear?: Function;
     showIcon?: boolean;
+    hoverShadow?: boolean;
     showClear?: boolean;
     maxResults?: number;
     placeholder?: string;
@@ -27,4 +28,4 @@ export interface ReactSearchAutocompleteProps<T> {
     showNoResultsText?: string;
     showItemsOnFocus?: boolean;
 }
-export default function ReactSearchAutocomplete<T>({ items, fuseOptions, inputDebounce, onSearch, onHover, onSelect, onFocus, onBlur, onMouseLeave, onClear, showIcon, showClear, maxResults, placeholder, autoFocus, styling, resultStringKeyName, inputSearchString, formatResult, showNoResults, showNoResultsText, showItemsOnFocus, ...rest }: ReactSearchAutocompleteProps<T>): JSX.Element;
+export default function ReactSearchAutocomplete<T>({ items, fuseOptions, inputDebounce, onSearch, onHover, onSelect, onFocus, onBlur, onMouseLeave, onClear, showIcon, hoverShadow, showClear, maxResults, placeholder, autoFocus, styling, resultStringKeyName, inputSearchString, formatResult, showNoResults, showNoResultsText, showItemsOnFocus, ...rest }: ReactSearchAutocompleteProps<T>): JSX.Element;

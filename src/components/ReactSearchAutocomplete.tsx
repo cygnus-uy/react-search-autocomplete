@@ -29,6 +29,7 @@ export interface ReactSearchAutocompleteProps<T> {
   onMouseLeave?: MouseEventHandler<HTMLInputElement>
   onClear?: Function
   showIcon?: boolean
+  hoverShadow?: boolean
   showClear?: boolean
   maxResults?: number
   placeholder?: string
@@ -54,6 +55,7 @@ export default function ReactSearchAutocomplete<T>({
   onMouseLeave = () => {},
   onClear = () => {},
   showIcon = true,
+  hoverShadow = true,
   showClear = true,
   maxResults = MAX_RESULTS,
   placeholder = '',
@@ -227,7 +229,7 @@ export default function ReactSearchAutocomplete<T>({
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledReactSearchAutocomplete>
+      <StyledReactSearchAutocomplete hoverShadow={hoverShadow}>
         <div className="wrapper" onMouseLeave={onMouseLeave}>
           <SearchInput
             searchString={searchString}
@@ -260,7 +262,11 @@ export default function ReactSearchAutocomplete<T>({
   )
 }
 
-const StyledReactSearchAutocomplete = styled.div`
+interface StyledReactSearchAutocompleteProps {
+  hoverShadow: boolean
+}
+
+const StyledReactSearchAutocomplete = styled.div<StyledReactSearchAutocompleteProps>`
   position: relative;
 
   height: ${(props: any) => parseInt(props.theme.height) + 2 + 'px'};
@@ -281,15 +287,17 @@ const StyledReactSearchAutocomplete = styled.div`
     font-family: ${(props: any) => props.theme.fontFamily};
 
     z-index: ${(props: any) => props.theme.zIndex};
-
-    &:hover {
-      box-shadow: ${(props: any) => props.theme.boxShadow};
-    }
-    &:active {
-      box-shadow: ${(props: any) => props.theme.boxShadow};
-    }
-    &:focus-within {
-      box-shadow: ${(props: any) => props.theme.boxShadow};
-    }
+    ${(props: any) =>
+      props.hoverShadow
+        ? `&:hover {
+            box-shadow: ${(props: any) => props.theme.boxShadow};
+          }
+          &:active {
+            box-shadow: ${(props: any) => props.theme.boxShadow};
+          }
+          &:focus-within {
+            box-shadow: ${(props: any) => props.theme.boxShadow};
+          }`
+        : ``}
   }
 `
