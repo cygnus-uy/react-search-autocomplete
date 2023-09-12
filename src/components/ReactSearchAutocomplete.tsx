@@ -41,6 +41,7 @@ export interface ReactSearchAutocompleteProps<T> {
   showNoResults?: boolean
   showNoResultsText?: string
   showItemsOnFocus?: boolean
+  enableEraseResults?: boolean
 }
 
 export default function ReactSearchAutocomplete<T>({
@@ -67,6 +68,7 @@ export default function ReactSearchAutocomplete<T>({
   showNoResults = true,
   showNoResultsText = 'No results',
   showItemsOnFocus = false,
+  enableEraseResults = true,
   ...rest
 }: ReactSearchAutocompleteProps<T>) {
   const theme = { ...defaultTheme, ...styling }
@@ -119,7 +121,10 @@ export default function ReactSearchAutocomplete<T>({
 
   useEffect(() => {
     const handleDocumentClick = () => {
-      // eraseResults()
+      if (enableEraseResults) {
+        eraseResults()
+      }
+
       setHasFocus(false)
     }
 
@@ -151,7 +156,10 @@ export default function ReactSearchAutocomplete<T>({
   )
 
   const handleOnClick = (result: Item<T>) => {
-    // eraseResults()
+    if (enableEraseResults) {
+      eraseResults()
+    }
+
     onSelect(result)
     setSearchString(result[resultStringKeyName])
     setHighlightedItem(0)
@@ -209,7 +217,9 @@ export default function ReactSearchAutocomplete<T>({
             onSearch(searchString, results)
           }
           setHighlightedItem(-1)
-          // eraseResults()
+          if (enableEraseResults) {
+            eraseResults()
+          }
           break
         case 'ArrowUp':
           event.preventDefault()
@@ -270,7 +280,8 @@ interface StyledReactSearchAutocompleteProps {
 const StyledReactSearchAutocomplete = styled.div<StyledReactSearchAutocompleteProps>`
   position: relative;
 
-  height: ${(props: StyledReactSearchAutocompleteProps) => parseInt(props.theme.height ?? '44') + 2 + 'px'};
+  height: ${(props: StyledReactSearchAutocompleteProps) =>
+    parseInt(props.theme.height ?? '44') + 2 + 'px'};
 
   > .wrapper {
     position: absolute;
@@ -301,7 +312,7 @@ const StyledReactSearchAutocomplete = styled.div<StyledReactSearchAutocompletePr
             box-shadow: ${(props: StyledReactSearchAutocompleteProps) => props.theme.boxShadow};
           }`
         : ``}
-    
+
     .result-item {
       cursor: pointer;
     }
