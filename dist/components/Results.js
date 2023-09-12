@@ -43,7 +43,7 @@ function Results(_a) {
     if ((results === null || results === void 0 ? void 0 : results.length) <= 0 && !showNoResultsFlag) {
         return null;
     }
-    return ((0, jsx_runtime_1.jsx)(ResultsWrapper, { children: results.slice(0, maxResults).map(function (result, index) { return ((0, jsx_runtime_1.jsxs)("li", __assign({ className: highlightedItem === index ? 'selected' : '', onMouseEnter: function () { return setHighlightedItem({ index: index }); }, "data-test": "result", onMouseDown: function (event) { return handleMouseDown({ event: event, result: result }); }, onClick: function () { return handleClick(result); } }, { children: [(0, jsx_runtime_1.jsx)(SearchIcon_1.SearchIcon, { showIcon: showIcon }), (0, jsx_runtime_1.jsx)("div", __assign({ className: "ellipsis", title: result[resultStringKeyName] }, { children: formatResultWithKey(result) }))] }), "rsa-result-".concat(result.id))); }) }));
+    return ((0, jsx_runtime_1.jsx)(ResultsWrapper, { children: results.slice(0, maxResults).map(function (result, index) { return ((0, jsx_runtime_1.jsxs)("li", __assign({ className: "result-item ".concat(highlightedItem === index ? 'selected' : ''), onMouseEnter: function () { return setHighlightedItem({ index: index }); }, "data-test": "result", onMouseDown: function (event) { return handleMouseDown({ event: event, result: result }); }, onClick: function () { return handleClick(result); } }, { children: [(0, jsx_runtime_1.jsx)(SearchIcon_1.SearchIcon, { showIcon: showIcon }), (0, jsx_runtime_1.jsx)("div", __assign({ className: "ellipsis", title: result[resultStringKeyName] }, { children: formatResultWithKey(result) }))] }), "rsa-result-".concat(result.id))); }) }));
 }
 exports.default = Results;
 var ResultsWrapper = function (_a) {

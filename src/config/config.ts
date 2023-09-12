@@ -16,12 +16,13 @@ export interface DefaultTheme {
   zIndex?: number
   clearIconMargin?: string
   searchIconMargin?: string
+  alignItems?: string
 }
 
 const defaultTheme: DefaultTheme = {
   height: '44px',
   border: '1px solid #dfe1e5',
-  borderRadius: '24px',
+  borderRadius: '5px',
   backgroundColor: 'white',
   boxShadow: 'rgba(32, 33, 36, 0.28) 0px 1px 6px 0px',
   hoverBackgroundColor: '#eee',
@@ -33,7 +34,8 @@ const defaultTheme: DefaultTheme = {
   placeholderColor: 'grey',
   zIndex: 0,
   clearIconMargin: '3px 14px 0 0',
-  searchIconMargin: '0 0 0 16px'
+  searchIconMargin: '0 0 0 16px',
+  alignItems: 'flex-start',
 }
 
 const defaultFuseOptions: Fuse.IFuseOptions<any> = {

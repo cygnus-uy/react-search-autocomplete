@@ -264,40 +264,46 @@ export default function ReactSearchAutocomplete<T>({
 
 interface StyledReactSearchAutocompleteProps {
   hoverShadow: boolean
+  theme: DefaultTheme
 }
 
 const StyledReactSearchAutocomplete = styled.div<StyledReactSearchAutocompleteProps>`
   position: relative;
 
-  height: ${(props: any) => parseInt(props.theme.height) + 2 + 'px'};
+  height: ${(props: StyledReactSearchAutocompleteProps) => parseInt(props.theme.height ?? '44') + 2 + 'px'};
 
   > .wrapper {
     position: absolute;
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: ${(props: StyledReactSearchAutocompleteProps) => props.theme.alignItems};
 
-    border: ${(props: any) => props.theme.border};
-    border-radius: ${(props: any) => props.theme.borderRadius};
+    border: ${(props: StyledReactSearchAutocompleteProps) => props.theme.border};
+    border-radius: ${(props: StyledReactSearchAutocompleteProps) => props.theme.borderRadius};
 
-    background-color: ${(props: any) => props.theme.backgroundColor};
-    color: ${(props: any) => props.theme.color};
+    background-color: ${(props: StyledReactSearchAutocompleteProps) => props.theme.backgroundColor};
+    color: ${(props: StyledReactSearchAutocompleteProps) => props.theme.color};
 
-    font-size: ${(props: any) => props.theme.fontSize};
-    font-family: ${(props: any) => props.theme.fontFamily};
+    font-size: ${(props: StyledReactSearchAutocompleteProps) => props.theme.fontSize};
+    font-family: ${(props: StyledReactSearchAutocompleteProps) => props.theme.fontFamily};
 
-    z-index: ${(props: any) => props.theme.zIndex};
-    ${(props: any) =>
+    z-index: ${(props: StyledReactSearchAutocompleteProps) => props.theme.zIndex};
+    ${(props: StyledReactSearchAutocompleteProps) =>
       props.hoverShadow
         ? `&:hover {
-            box-shadow: ${(props: any) => props.theme.boxShadow};
+            box-shadow: ${(props: StyledReactSearchAutocompleteProps) => props.theme.boxShadow};
           }
           &:active {
-            box-shadow: ${(props: any) => props.theme.boxShadow};
+            box-shadow: ${(props: StyledReactSearchAutocompleteProps) => props.theme.boxShadow};
           }
           &:focus-within {
-            box-shadow: ${(props: any) => props.theme.boxShadow};
+            box-shadow: ${(props: StyledReactSearchAutocompleteProps) => props.theme.boxShadow};
           }`
         : ``}
+    
+    .result-item {
+      cursor: pointer;
+    }
   }
 `

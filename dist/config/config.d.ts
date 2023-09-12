@@ -15,6 +15,7 @@ export interface DefaultTheme {
     zIndex?: number;
     clearIconMargin?: string;
     searchIconMargin?: string;
+    alignItems?: string;
 }
 declare const defaultTheme: DefaultTheme;
 declare const defaultFuseOptions: Fuse.IFuseOptions<any>;

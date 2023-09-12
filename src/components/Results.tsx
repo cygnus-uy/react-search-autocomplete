@@ -74,7 +74,7 @@ export default function Results<T>({
     <ResultsWrapper>
       {results.slice(0, maxResults).map((result, index) => (
         <li
-          className={highlightedItem === index ? 'selected' : ''}
+          className={`result-item ${highlightedItem === index ? 'selected' : ''}`}
           onMouseEnter={() => setHighlightedItem({ index })}
           data-test="result"
           key={`rsa-result-${result.id}`}
