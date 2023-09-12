@@ -16,6 +16,7 @@ export interface ResultsProps<T> {
   resultStringKeyName: string
   showNoResultsFlag?: boolean
   showNoResultsText?: string
+  showLine?: boolean
 }
 
 export default function Results<T>({
@@ -29,7 +30,8 @@ export default function Results<T>({
   setHighlightedItem,
   formatResult,
   showNoResultsFlag = true,
-  showNoResultsText = 'No results'
+  showNoResultsText = 'No results',
+  showLine = true
 }: ResultsProps<T>) {
   type WithStringKeyName = T & Record<string, unknown>
 
@@ -57,7 +59,7 @@ export default function Results<T>({
 
   if (showNoResultsFlag) {
     return (
-      <ResultsWrapper>
+      <ResultsWrapper showLine={showLine}>
         <li data-test="no-results-message">
           <SearchIcon showIcon={showIcon} />
           <div className="ellipsis">{showNoResultsText}</div>
@@ -71,7 +73,7 @@ export default function Results<T>({
   }
 
   return (
-    <ResultsWrapper>
+    <ResultsWrapper showLine={showLine}>
       {results.slice(0, maxResults).map((result, index) => (
         <li
           className={`result-item ${highlightedItem === index ? 'selected' : ''}`}
@@ -91,10 +93,10 @@ export default function Results<T>({
   )
 }
 
-const ResultsWrapper = ({ children }: { children: ReactNode }) => {
+const ResultsWrapper = ({ children, showLine }: { children: ReactNode; showLine: boolean }) => {
   return (
     <StyledResults>
-      <div className="line" />
+      {showLine && <div className="line" />}
       <ul>{children}</ul>
     </StyledResults>
   )

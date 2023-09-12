@@ -14,5 +14,6 @@ export interface ResultsProps<T> {
     resultStringKeyName: string;
     showNoResultsFlag?: boolean;
     showNoResultsText?: string;
+    showLine?: boolean;
 }
-export default function Results<T>({ results, onClick, setSearchString, showIcon, maxResults, resultStringKeyName, highlightedItem, setHighlightedItem, formatResult, showNoResultsFlag, showNoResultsText }: ResultsProps<T>): JSX.Element | null;
+export default function Results<T>({ results, onClick, setSearchString, showIcon, maxResults, resultStringKeyName, highlightedItem, setHighlightedItem, formatResult, showNoResultsFlag, showNoResultsText, showLine }: ResultsProps<T>): JSX.Element | null;
