@@ -27,6 +27,7 @@ export interface ReactSearchAutocompleteProps<T> {
     showNoResults?: boolean;
     showNoResultsText?: string;
     showItemsOnFocus?: boolean;
+    showLine?: boolean;
     enableEraseResults?: boolean;
 }
-export default function ReactSearchAutocomplete<T>({ items, fuseOptions, inputDebounce, onSearch, onHover, onSelect, onFocus, onBlur, onMouseLeave, onClear, showIcon, hoverShadow, showClear, maxResults, placeholder, autoFocus, styling, resultStringKeyName, inputSearchString, formatResult, showNoResults, showNoResultsText, showItemsOnFocus, enableEraseResults, ...rest }: ReactSearchAutocompleteProps<T>): JSX.Element;
+export default function ReactSearchAutocomplete<T>({ items, fuseOptions, inputDebounce, onSearch, onHover, onSelect, onFocus, onBlur, onMouseLeave, onClear, showIcon, hoverShadow, showClear, maxResults, placeholder, autoFocus, styling, resultStringKeyName, inputSearchString, formatResult, showNoResults, showNoResultsText, showItemsOnFocus, showLine, enableEraseResults, ...rest }: ReactSearchAutocompleteProps<T>): JSX.Element;
