@@ -41,6 +41,7 @@ export interface ReactSearchAutocompleteProps<T> {
   showNoResults?: boolean
   showNoResultsText?: string
   showItemsOnFocus?: boolean
+  showLine?: boolean
   enableEraseResults?: boolean
 }
 
@@ -68,6 +69,7 @@ export default function ReactSearchAutocomplete<T>({
   showNoResults = true,
   showNoResultsText = 'No results',
   showItemsOnFocus = false,
+  showLine = true,
   enableEraseResults = true,
   ...rest
 }: ReactSearchAutocompleteProps<T>) {
@@ -265,6 +267,7 @@ export default function ReactSearchAutocomplete<T>({
             setHighlightedItem={handleSetHighlightedItem}
             showNoResultsFlag={showNoResultsFlag}
             showNoResultsText={showNoResultsText}
+            showLine={showLine}
           />
         </div>
       </StyledReactSearchAutocomplete>
