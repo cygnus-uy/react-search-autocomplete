@@ -64,18 +64,18 @@ var SearchInput_1 = __importDefault(require("./SearchInput"));
 exports.DEFAULT_INPUT_DEBOUNCE = 200;
 exports.MAX_RESULTS = 10;
 function ReactSearchAutocomplete(_a) {
-    var _b = _a.items, items = _b === void 0 ? [] : _b, _c = _a.fuseOptions, fuseOptions = _c === void 0 ? config_1.defaultFuseOptions : _c, _d = _a.inputDebounce, inputDebounce = _d === void 0 ? exports.DEFAULT_INPUT_DEBOUNCE : _d, _e = _a.onSearch, onSearch = _e === void 0 ? function () { } : _e, _f = _a.onHover, onHover = _f === void 0 ? function () { } : _f, _g = _a.onSelect, onSelect = _g === void 0 ? function () { } : _g, _h = _a.onFocus, onFocus = _h === void 0 ? function () { } : _h, _j = _a.onBlur, onBlur = _j === void 0 ? function () { } : _j, _k = _a.onMouseLeave, onMouseLeave = _k === void 0 ? function () { } : _k, _l = _a.onClear, onClear = _l === void 0 ? function () { } : _l, _m = _a.showIcon, showIcon = _m === void 0 ? true : _m, _o = _a.hoverShadow, hoverShadow = _o === void 0 ? true : _o, _p = _a.showClear, showClear = _p === void 0 ? true : _p, _q = _a.maxResults, maxResults = _q === void 0 ? exports.MAX_RESULTS : _q, _r = _a.placeholder, placeholder = _r === void 0 ? '' : _r, _s = _a.autoFocus, autoFocus = _s === void 0 ? false : _s, _t = _a.styling, styling = _t === void 0 ? {} : _t, _u = _a.resultStringKeyName, resultStringKeyName = _u === void 0 ? 'name' : _u, _v = _a.inputSearchString, inputSearchString = _v === void 0 ? '' : _v, formatResult = _a.formatResult, _w = _a.showNoResults, showNoResults = _w === void 0 ? true : _w, _x = _a.showNoResultsText, showNoResultsText = _x === void 0 ? 'No results' : _x, _y = _a.showItemsOnFocus, showItemsOnFocus = _y === void 0 ? false : _y, rest = __rest(_a, ["items", "fuseOptions", "inputDebounce", "onSearch", "onHover", "onSelect", "onFocus", "onBlur", "onMouseLeave", "onClear", "showIcon", "hoverShadow", "showClear", "maxResults", "placeholder", "autoFocus", "styling", "resultStringKeyName", "inputSearchString", "formatResult", "showNoResults", "showNoResultsText", "showItemsOnFocus"]);
+    var _b = _a.items, items = _b === void 0 ? [] : _b, _c = _a.fuseOptions, fuseOptions = _c === void 0 ? config_1.defaultFuseOptions : _c, _d = _a.inputDebounce, inputDebounce = _d === void 0 ? exports.DEFAULT_INPUT_DEBOUNCE : _d, _e = _a.onSearch, onSearch = _e === void 0 ? function () { } : _e, _f = _a.onHover, onHover = _f === void 0 ? function () { } : _f, _g = _a.onSelect, onSelect = _g === void 0 ? function () { } : _g, _h = _a.onFocus, onFocus = _h === void 0 ? function () { } : _h, _j = _a.onBlur, onBlur = _j === void 0 ? function () { } : _j, _k = _a.onMouseLeave, onMouseLeave = _k === void 0 ? function () { } : _k, _l = _a.onClear, onClear = _l === void 0 ? function () { } : _l, _m = _a.showIcon, showIcon = _m === void 0 ? true : _m, _o = _a.hoverShadow, hoverShadow = _o === void 0 ? true : _o, _p = _a.showClear, showClear = _p === void 0 ? true : _p, _q = _a.maxResults, maxResults = _q === void 0 ? exports.MAX_RESULTS : _q, _r = _a.placeholder, placeholder = _r === void 0 ? '' : _r, _s = _a.autoFocus, autoFocus = _s === void 0 ? false : _s, _t = _a.styling, styling = _t === void 0 ? {} : _t, _u = _a.resultStringKeyName, resultStringKeyName = _u === void 0 ? 'name' : _u, _v = _a.inputSearchString, inputSearchString = _v === void 0 ? '' : _v, formatResult = _a.formatResult, _w = _a.showNoResults, showNoResults = _w === void 0 ? true : _w, _x = _a.showNoResultsText, showNoResultsText = _x === void 0 ? 'No results' : _x, _y = _a.showItemsOnFocus, showItemsOnFocus = _y === void 0 ? false : _y, _z = _a.enableEraseResults, enableEraseResults = _z === void 0 ? true : _z, rest = __rest(_a, ["items", "fuseOptions", "inputDebounce", "onSearch", "onHover", "onSelect", "onFocus", "onBlur", "onMouseLeave", "onClear", "showIcon", "hoverShadow", "showClear", "maxResults", "placeholder", "autoFocus", "styling", "resultStringKeyName", "inputSearchString", "formatResult", "showNoResults", "showNoResultsText", "showItemsOnFocus", "enableEraseResults"]);
     var theme = __assign(__assign({}, config_1.defaultTheme), styling);
     var options = __assign(__assign({}, config_1.defaultFuseOptions), fuseOptions);
     var fuse = new fuse_js_1.default(items, options);
     fuse.setCollection(items);
-    var _z = (0, react_1.useState)(inputSearchString), searchString = _z[0], setSearchString = _z[1];
-    var _0 = (0, react_1.useState)([]), results = _0[0], setResults = _0[1];
-    var _1 = (0, react_1.useState)(-1), highlightedItem = _1[0], setHighlightedItem = _1[1];
-    var _2 = (0, react_1.useState)(false), isSearchComplete = _2[0], setIsSearchComplete = _2[1];
-    var _3 = (0, react_1.useState)(false), isTyping = _3[0], setIsTyping = _3[1];
-    var _4 = (0, react_1.useState)(false), showNoResultsFlag = _4[0], setShowNoResultsFlag = _4[1];
-    var _5 = (0, react_1.useState)(false), hasFocus = _5[0], setHasFocus = _5[1];
+    var _0 = (0, react_1.useState)(inputSearchString), searchString = _0[0], setSearchString = _0[1];
+    var _1 = (0, react_1.useState)([]), results = _1[0], setResults = _1[1];
+    var _2 = (0, react_1.useState)(-1), highlightedItem = _2[0], setHighlightedItem = _2[1];
+    var _3 = (0, react_1.useState)(false), isSearchComplete = _3[0], setIsSearchComplete = _3[1];
+    var _4 = (0, react_1.useState)(false), isTyping = _4[0], setIsTyping = _4[1];
+    var _5 = (0, react_1.useState)(false), showNoResultsFlag = _5[0], setShowNoResultsFlag = _5[1];
+    var _6 = (0, react_1.useState)(false), hasFocus = _6[0], setHasFocus = _6[1];
     (0, react_1.useEffect)(function () {
         setSearchString(inputSearchString);
         var timeoutId = setTimeout(function () { return setResults(fuseResults(inputSearchString)); }, 0);
@@ -106,7 +106,9 @@ function ReactSearchAutocomplete(_a) {
     }, [showItemsOnFocus, results, searchString, hasFocus]);
     (0, react_1.useEffect)(function () {
         var handleDocumentClick = function () {
-            // eraseResults()
+            if (enableEraseResults) {
+                eraseResults();
+            }
             setHasFocus(false);
         };
         document.addEventListener('click', handleDocumentClick);
@@ -127,7 +129,9 @@ function ReactSearchAutocomplete(_a) {
         ? (0, utils_1.debounce)(function (keyword) { return callOnSearch(keyword); }, inputDebounce)
         : function (keyword) { return callOnSearch(keyword); }, [items]);
     var handleOnClick = function (result) {
-        // eraseResults()
+        if (enableEraseResults) {
+            eraseResults();
+        }
         onSelect(result);
         setSearchString(result[resultStringKeyName]);
         setHighlightedItem(0);
@@ -176,7 +180,9 @@ function ReactSearchAutocomplete(_a) {
                         onSearch(searchString, results);
                     }
                     setHighlightedItem(-1);
-                    // eraseResults()
+                    if (enableEraseResults) {
+                        eraseResults();
+                    }
                     break;
                 case 'ArrowUp':
                     event.preventDefault();
@@ -196,7 +202,7 @@ function ReactSearchAutocomplete(_a) {
     return ((0, jsx_runtime_1.jsx)(styled_components_1.ThemeProvider, __assign({ theme: theme }, { children: (0, jsx_runtime_1.jsx)(StyledReactSearchAutocomplete, __assign({ hoverShadow: hoverShadow }, { children: (0, jsx_runtime_1.jsxs)("div", __assign({ className: "wrapper", onMouseLeave: onMouseLeave }, { children: [(0, jsx_runtime_1.jsx)(SearchInput_1.default, { searchString: searchString, setSearchString: handleSetSearchString, autoFocus: autoFocus, onFocus: handleOnFocus, onBlur: onBlur, onClear: onClear, placeholder: placeholder, showIcon: showIcon, showClear: showClear, setHighlightedItem: handleSetHighlightedItem }), (0, jsx_runtime_1.jsx)(Results_1.default, { results: results, onClick: handleOnClick, setSearchString: setSearchString, showIcon: showIcon, maxResults: maxResults, resultStringKeyName: resultStringKeyName, formatResult: formatResult, highlightedItem: highlightedItem, setHighlightedItem: handleSetHighlightedItem, showNoResultsFlag: showNoResultsFlag, showNoResultsText: showNoResultsText })] })) })) })));
 }
 exports.default = ReactSearchAutocomplete;
-var StyledReactSearchAutocomplete = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n\n  height: ", ";\n\n  > .wrapper {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    align-items: ", ";\n\n    border: ", ";\n    border-radius: ", ";\n\n    background-color: ", ";\n    color: ", ";\n\n    font-size: ", ";\n    font-family: ", ";\n\n    z-index: ", ";\n    ", "\n    \n    .result-item {\n      cursor: pointer;\n    }\n  }\n"], ["\n  position: relative;\n\n  height: ", ";\n\n  > .wrapper {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    align-items: ", ";\n\n    border: ", ";\n    border-radius: ", ";\n\n    background-color: ", ";\n    color: ", ";\n\n    font-size: ", ";\n    font-family: ", ";\n\n    z-index: ", ";\n    ", "\n    \n    .result-item {\n      cursor: pointer;\n    }\n  }\n"])), function (props) { var _a; return parseInt((_a = props.theme.height) !== null && _a !== void 0 ? _a : '44') + 2 + 'px'; }, function (props) { return props.theme.alignItems; }, function (props) { return props.theme.border; }, function (props) { return props.theme.borderRadius; }, function (props) { return props.theme.backgroundColor; }, function (props) { return props.theme.color; }, function (props) { return props.theme.fontSize; }, function (props) { return props.theme.fontFamily; }, function (props) { return props.theme.zIndex; }, function (props) {
+var StyledReactSearchAutocomplete = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n\n  height: ", ";\n\n  > .wrapper {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    align-items: ", ";\n\n    border: ", ";\n    border-radius: ", ";\n\n    background-color: ", ";\n    color: ", ";\n\n    font-size: ", ";\n    font-family: ", ";\n\n    z-index: ", ";\n    ", "\n\n    .result-item {\n      cursor: pointer;\n    }\n  }\n"], ["\n  position: relative;\n\n  height: ", ";\n\n  > .wrapper {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    align-items: ", ";\n\n    border: ", ";\n    border-radius: ", ";\n\n    background-color: ", ";\n    color: ", ";\n\n    font-size: ", ";\n    font-family: ", ";\n\n    z-index: ", ";\n    ", "\n\n    .result-item {\n      cursor: pointer;\n    }\n  }\n"])), function (props) { var _a; return parseInt((_a = props.theme.height) !== null && _a !== void 0 ? _a : '44') + 2 + 'px'; }, function (props) { return props.theme.alignItems; }, function (props) { return props.theme.border; }, function (props) { return props.theme.borderRadius; }, function (props) { return props.theme.backgroundColor; }, function (props) { return props.theme.color; }, function (props) { return props.theme.fontSize; }, function (props) { return props.theme.fontFamily; }, function (props) { return props.theme.zIndex; }, function (props) {
     return props.hoverShadow
         ? "&:hover {\n            box-shadow: ".concat(function (props) { return props.theme.boxShadow; }, ";\n          }\n          &:active {\n            box-shadow: ").concat(function (props) { return props.theme.boxShadow; }, ";\n          }\n          &:focus-within {\n            box-shadow: ").concat(function (props) { return props.theme.boxShadow; }, ";\n          }")
         : "";
